@@ -10,7 +10,7 @@ class Products:
 
         total = sum(self.products)
 
-        for key,value in self.discounts.items():
+        for _,value in self.discounts.items():
             return (total-(total*(value/100)))
 
          

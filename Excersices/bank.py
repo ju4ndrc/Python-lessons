@@ -1,33 +1,40 @@
 import random
 
 class AccountBanck:
-    def __init__(self,name,amount = 0):
-        
+    def __init__(self,id,name,amount = 0):
+        self.id = id
         self.name = name
         self._amount = amount
+        self.__transactions = {}
         
 
     def __str__(self):
         return f'{self.name} '
+    
+    def __register_transaction(self,transaction):
+
+        self.__transactions[transaction.id] = transaction
+    
     def _update_amount(self,amount):
         self._amount = self._amount + amount
 
-    def __register_transaction(self,transaction):
-        self.__transactions[transaction._amount] = transaction
-    def transactions(self,quantity):
-        self._update_amount(quantity)
-        self.__register_transaction(quantity)
 
-    def show_transactions(self):
-        print(f'\n{self.__transactions}')
-
-class DbTransactions:
-    def __init__(self):
-        self.__transactions = {}
-        # Ya cree la clase para usar como base de datos
-new1 = AccountBanck('Juan',90)
-
-new1.transactions(90)
+    def deposit(self,quantity):
         
-new1.show_transactions()
+
+
+        
+
+    def withdraw(self,quantity):
+        
+        if self._amount < quantity:
+            return 'Monto insuficiente'
+        else:
+            self._amount -= quantity
+
+    def show_amount(self):        
+
+
+
+
 
